@@ -1,0 +1,207 @@
+/*
+* @Author: zengxianlin
+* @Date:   2017-02-22 10:46:39
+* @Last Modified by:   877529974@qq.com
+* @Last Modified time: 2017-03-08 12:06:48
+*/
+@charset "utf-8";
+/* CSS layout */
+
+/* 初始化 */
+* {margin: 0;padding: 0;border: 0;font-style: normal;}
+a {text-decoration: none !important;outline:none !important;blur:expression(this.onFocus=this.blur()); color:#000;}
+a:link { text-decoration: none !important;}
+a:active { text-decoration: none !important}
+a:hover { text-decoration:none !important;}
+a:visited { text-decoration: none !important;}
+ul {padding: 0px;margin: 0px;}
+li {list-style-position: outside;list-style-type: none; vertical-align:bottom; /*fix ie6 li height bug*/ zoom:1;}
+img {border:0px;}
+html{height:100%;overflow-y:scroll;}
+body{width:100%;height:100%;position:relative;font-size: 12px;line-height:12px;font-weight: normal;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif,"微软雅黑","宋体";}
+h1,h2,h3,h4,h5,h6{font-size:12px;display:block;font-weight:normal;}
+legend{display:block; width:100%;}
+button{cursor:pointer;}
+table {border-collapse: collapse;border-spacing: 0;width: 100%;}
+th, td, caption {vertical-align: middle; font-weight: 500;}
+
+/* 去除iPhone中默认的input样式 */
+input[type="submit"],
+
+input[type="reset"],
+
+input[type="button"],
+
+/*input{-webkit-appearance:none; resize: none;}*/
+/* 取消链接高亮  */
+body,div,ul,li,ol,h1,h2,h3,h4,h5,h6,input,textarea,select,p,dl,dt,dd,a,img,button,form,table,th,tr,td,tbody,article,
+aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section{ -webkit-tap-highlight-color:rgba(0, 0, 0, 0); outline: none; }
+/* 设置HTML5元素为块 */
+article, aside, details,figcaption,figure,footer,header,hgroup, menu,nav,section {
+display: block;
+}
+/* 图片自适应 */
+img {
+max-width: 100%;
+height: auto;
+width:auto\9; /* ie8 */
+-ms-interpolation-mode:bicubic;/*为了照顾ie图片缩放失真*/
+display: block;
+}
+
+
+
+@font-face {
+  font-family: 'iconfont';  /* project id 236843 */
+  src: url('https://at.alicdn.com/t/font_wz6cxu7kw5amunmi.eot');
+  src: url('https://at.alicdn.com/t/font_wz6cxu7kw5amunmi.eot?#iefix') format('embedded-opentype'),
+  url('https://at.alicdn.com/t/font_wz6cxu7kw5amunmi.woff') format('woff'),
+  url('https://at.alicdn.com/t/font_wz6cxu7kw5amunmi.ttf') format('truetype'),
+  url('https://at.alicdn.com/t/font_wz6cxu7kw5amunmi.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:'iconfont',Helvetica,Arial,sans-serif,"微软雅黑";
+    display: block;
+}
+
+.flex{
+    display: box;              /* OLD - Android 4.4- */
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+.flex > *{
+    -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: 1;         /* OLD - Firefox 19- */
+    -webkit-flex: 1;          /* Chrome */
+    -ms-flex: 1;              /* IE 10 */
+    flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+/* 浮动公共样式 */
+.left{ float:left; _display:inline; }
+.right{ float:right; _display:inline; }
+.clear:after{ display:block; content:''; clear:both;}
+.clear{ zoom:1;}
+
+/* 切换页面动画 */
+.slide-down-enter-active,
+  .slide-down-leave-active{
+    -webkit-transition: all 0.25s linear;
+            transition: all 0.25s linear;
+    -webkit-transform: translate3d(100%, 0, 0);
+            transform: translate3d(100%, 0, 0);
+  }
+  .slide-down-enter,
+  .slide-down-leave{
+      -webkit-transform: translate3d(100%, 0, 0);
+              transform: translate3d(100%, 0, 0);
+  }
+
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+@-webkit-keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@keyframes bounceInDown {
+  from, 60%, 75%, 90%, to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0);
+  }
+
+  to {
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+}
+
+
+
+
+
+
+
+#app{
+  max-width:750px;
+  overflow-x: hidden;
+  margin:0 auto;
+}
+.revisions,.musiclist,.movieDetails{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index:300;
+    overflow-y:auto;
+    overflow-x:hidden;
+}
+
+.musiclist{
+  padding-top: 40px;
+}
